@@ -1,0 +1,170 @@
+/**
+ *  コントロールパネル バリエーション
+ */
+.area-control__manage-anim {
+	$dimension: 32px;
+
+
+	/* -------------------------------------
+		直線運動
+	 ------------------------------------- */
+	&.linear {
+		// 文脈アイコンエリア
+		.area-control__select-anim-icon {
+			&:before {
+			}
+
+			&:after {
+			}
+
+			div {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: $dimension / 3;
+				height: $dimension / 3;
+				background: #fff;
+				z-index: 3;
+			}
+		}
+
+		// 操作エリア
+		& .area-control__operation-anim-main-right {
+		}
+	}
+
+	/* -------------------------------------
+		扇運動
+	 ------------------------------------- */
+	&.arc {
+		// 文脈アイコンエリア
+		.area-control__select-anim-icon {
+			&:before {
+				@include border-radius( 50% );
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: $dimension * 2;
+				height: $dimension * 2;
+				border: 5px solid #e7ca00;
+				background: #efd102;
+				z-index: 1;
+			}
+
+			&:after {
+				@include border-radius( 50% );
+				content: '';
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				width: $dimension * 1.5;
+				height: $dimension * 1.5;
+				border: 5px solid #fce229;
+				background: #ffef7b;
+				z-index: 2;
+			}
+
+			div {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: $dimension / 3;
+				height: $dimension / 3;
+				background: #fff;
+				z-index: 3;
+			}
+		}
+
+		// 操作エリア
+		& .area-control__operation-anim-main-right {
+			> div {
+				+ div {
+					border-top: 1px solid #e3e3e3;
+				}
+
+				height: 50%;
+			}
+		}
+	}
+
+	/* -------------------------------------
+		円運動
+	 ------------------------------------- */
+	&.circle {
+		// 文脈アイコンエリア
+		.area-control__select-anim-icon {
+			&:before {
+				@include border-radius( 50% );
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: $dimension;
+				height: $dimension;
+				border: 3px solid #e7ca00;
+				background: #efd102;
+				z-index: 1;
+			}
+
+			&:after {
+				@include border-radius( 50% );
+				content: '';
+				position: absolute;
+				top: 7px;
+				left: 7px;
+				width: $dimension * 0.5;
+				height: $dimension * 0.5;
+				border: 3px solid #fce229;
+				background: #ffef7b;
+				z-index: 2;
+			}
+
+			div {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: $dimension / 3;
+				height: $dimension / 3;
+				background: #fff;
+				z-index: 3;
+			}
+		}
+
+		// 操作エリア
+		& .area-control__operation-anim-main-right {
+		}
+	}
+
+	/* -------------------------------------
+		拡大・縮小
+	 ------------------------------------- */
+	&.scale {
+		// 文脈アイコンエリア
+		.area-control__select-anim-icon {
+			&:before {
+			}
+
+			&:after {
+			}
+
+			div {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: $dimension / 3;
+				height: $dimension / 3;
+				background: #fff;
+				z-index: 3;
+			}
+		}
+
+		// 操作エリア
+		& .area-control__operation-anim-main-right {
+		}
+	}
+}

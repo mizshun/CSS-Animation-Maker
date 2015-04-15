@@ -1,0 +1,13 @@
+# ディレクトリのすべてのファイルを無視します
+.sass-cache/
+
+# ファイルを無視します
+#*.eot
+#*.svg
+#*.ttf
+#*.woff
+#*.jpg
+#*.png
+#*.gif
+#*.ico
+*.DS_Store

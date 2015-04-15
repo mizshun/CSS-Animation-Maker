@@ -1,0 +1,674 @@
+@charset "UTF-8";
+/* -------------------------------------
+	アップローダーエリア
+ ------------------------------------- */
+#area-uploader {
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+  -moz-box-shadow: 1px 1px 3px #aaa;
+  box-shadow: 1px 1px 3px #aaa;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /* CLEAR FIX */
+  zoom: 1;
+  margin-bottom: 10px;
+}
+#area-uploader:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+#area-uploader form {
+  float: left;
+  width: 90%;
+}
+#area-uploader #area-uploader__main,
+#area-uploader #area-uploader__parts {
+  /* CLEAR FIX */
+  zoom: 1;
+}
+#area-uploader #area-uploader__main:after,
+#area-uploader #area-uploader__parts:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+#area-uploader input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 25%;
+  padding: 5px;
+  border: 1px solid #eee;
+  background: #f9f9f9;
+}
+#area-uploader #upload-file-main {
+  display: block;
+  width: 100%;
+}
+
+/* ストレージエリア */
+#area-uploader__btn {
+  float: right;
+  width: 10%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+#area-uploader__btn li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 50%;
+  border-bottom: 4px solid #930000;
+  background-color: #d70000;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  cursor: pointer;
+  -webkit-transition: 0.15s all;
+  -moz-transition: 0.15s all;
+  transition: 0.15s all;
+}
+#area-uploader__btn li:hover {
+  opacity: .8;
+}
+#area-uploader__btn li:active {
+  border-top: 2px solid #aaa;
+  border-bottom: 2px solid #930000;
+}
+
+/* 操作エリア */
+#area-control {
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+  -moz-box-shadow: 1px 1px 3px #aaa;
+  box-shadow: 1px 1px 3px #aaa;
+  position: relative;
+}
+
+#area-control__head {
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+  -moz-box-shadow: 1px 1px 3px #aaa;
+  box-shadow: 1px 1px 3px #aaa;
+  /* CLEAR FIX */
+  zoom: 1;
+}
+#area-control__head:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* -------------------------------------
+	パーツ選択エリア
+ ------------------------------------- */
+#area-control__select,
+#area-control__run {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /* CLEAR FIX */
+  zoom: 1;
+  height: 60px;
+  border-bottom: 3px solid #eee;
+  background: #f9f9f9;
+}
+#area-control__select:after,
+#area-control__run:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+#area-control__select ul,
+#area-control__run ul {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  list-style-type: none;
+  line-height: 57px;
+}
+#area-control__select li,
+#area-control__run li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 11.11111%;
+  height: 100%;
+  border-bottom: 3px solid transparent;
+  background-color: #fff;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+#area-control__select li + li,
+#area-control__run li + li {
+  border-left: 1px solid #eee;
+}
+#area-control__select li.active,
+#area-control__run li.active {
+  position: relative;
+  border-bottom: 3px solid #d70000;
+  background: #fde6e6;
+}
+#area-control__select li.active:after,
+#area-control__run li.active:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  margin-left: -5px;
+  border-top: 10px solid #d70000;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+#area-control__select li:hover,
+#area-control__run li:hover {
+  opacity: .8;
+}
+
+#area-control__select {
+  float: left;
+  width: 90%;
+}
+#area-control__select img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#area-control__run {
+  float: right;
+  width: 10%;
+  text-align: center;
+  font-weight: bold;
+}
+#area-control__run li {
+  width: 100%;
+  border-bottom: 4px solid #930000;
+  background-color: #d70000;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  -webkit-transition: 0.15s all;
+  -moz-transition: 0.15s all;
+  transition: 0.15s all;
+}
+#area-control__run li:active {
+  border-top: 2px solid #aaa;
+  border-bottom: 2px solid #930000;
+}
+
+/* -------------------------------------
+	キャラクター操作エリア
+ ------------------------------------- */
+#area-control__work {
+  position: relative;
+  height: 480px;
+}
+
+#area-control__enemy {
+  position: relative;
+  height: 100%;
+}
+
+#area-enemy {
+  width: 100%;
+  height: 100%;
+}
+
+#comp-enemy__blank {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin-top: -24px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.parts-enemy {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute !important;
+  border: 1px dashed transparent;
+}
+.parts-enemy[id*=sub] {
+  cursor: move;
+}
+.parts-enemy.active {
+  border-color: #d70000;
+  background-color: rgba(253, 230, 230, 0.5);
+}
+.parts-enemy img {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: bottom;
+}
+
+/* -------------------------------------
+	操作パネル
+ ------------------------------------- */
+#area-control__panel {
+  background-color: #f9f9f9;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+  -moz-box-shadow: 1px 1px 3px #aaa;
+  box-shadow: 1px 1px 3px #aaa;
+  /* CLEAR FIX */
+  zoom: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 240px;
+  height: 480px;
+  font-size: 11px;
+  cursor: move;
+  z-index: 9999;
+}
+#area-control__panel:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+#area-control__panel form {
+  overflow-y: auto;
+  height: 390px;
+  background-color: #fff;
+}
+#area-control__panel label {
+  font-weight: bold;
+}
+
+/* パーツ情報エリア */
+#area-control__panel-parts {
+  /* CLEAR FIX */
+  zoom: 1;
+  border-bottom: 1px solid #e3e3e3;
+  background-color: #fff;
+}
+#area-control__panel-parts:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+#area-control__panel-parts-name {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  float: left;
+  width: 80%;
+  height: 48px;
+  font-size: 14px;
+  line-height: 48px;
+  text-overflow: ellipsis;
+}
+
+#area-control__panel-parts-zindex {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: right;
+  width: 20%;
+  height: 48px;
+  background-color: #d70000;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  line-height: 48px;
+}
+
+/* パーツアニメーションエリア (ラッパー) */
+/* 個別パーツアニメーションエリア */
+.area-control__select-anim {
+  /* CLEAR FIX */
+  zoom: 1;
+  height: 32px;
+}
+.area-control__select-anim:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.area-control__select-anim .area-control__select-anim-icon {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  width: 32px;
+  height: 100%;
+  border-right: 1px solid #e3e3e3;
+}
+.area-control__select-anim .area-control__select-anim-pattern {
+  float: right;
+  width: 207px;
+  height: 100%;
+  border: none;
+  background-color: #fff;
+  font-weight: bold;
+}
+
+.area-control__operation-anim {
+  border-left: 8px solid #e3e3e3;
+  border-bottom: 8px solid #e3e3e3;
+}
+.area-control__operation-anim .area-control__operation-anim-main {
+  display: table;
+  width: 100%;
+  height: 100px;
+  border-top: 1px solid #e3e3e3;
+  background: #f9f9f9;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-main-left {
+  display: table-cell;
+  width: 72px;
+  height: 100%;
+  text-align: center;
+  vertical-align: top;
+  border-right: 1px solid #e3e3e3;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-context {
+  /* CLEAR FIX */
+  zoom: 1;
+  height: 72px;
+  background-color: #fff;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-context:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-context.origin {
+  background-color: #fff;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-context.origin label {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-context.origin label:hover {
+  background-color: #e3e3e3;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-context.origin label.active {
+  background-color: #fde6e6;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-context.origin input {
+  display: none;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-btn-detail {
+  height: 25px;
+  border-bottom: 4px solid #930000;
+  background-color: #d70000;
+  color: #fff;
+  text-align: center;
+  line-height: 25px;
+  cursor: pointer;
+  -webkit-transition: 0.15s all;
+  -moz-transition: 0.15s all;
+  transition: 0.15s all;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-btn-detail:hover {
+  opacity: .9;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-btn-detail:active {
+  border-top: 2px solid #aaa;
+  border-bottom: 2px solid #930000;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-main-right {
+  display: table-cell;
+  height: 100%;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-main-right > div {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-main-right span {
+  display: block;
+}
+.area-control__operation-anim .area-control__operation-anim-main .area-control__operation-anim-main-right input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+.area-control__operation-anim .area-control__operation-anim-detail {
+  display: none;
+}
+.area-control__operation-anim .area-control__operation-anim-detail > div {
+  display: table;
+  width: 100%;
+  border-left: 1px solid #e3e3e3;
+}
+.area-control__operation-anim .area-control__operation-anim-detail > div:first-child {
+  border-top: 1px solid #e3e3e3;
+}
+.area-control__operation-anim .area-control__operation-anim-detail > div > span {
+  display: table-cell;
+  width: 50%;
+  height: 32px;
+  padding: 5px;
+  border-right: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
+  text-align: center;
+  vertical-align: middle;
+}
+.area-control__operation-anim .area-control__operation-anim-detail > div > span:first-child {
+  background: #f9f9f9;
+  font-weight: bold;
+}
+.area-control__operation-anim .area-control__operation-anim-detail > div > span > * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  text-align: center;
+}
+
+.area-control__delete-anim a {
+  display: block;
+  padding: 5px;
+  background: #565656;
+  border-bottom: 4px solid #444;
+  color: #fff;
+  text-align: center;
+  -webkit-transition: 0.15s all;
+  -moz-transition: 0.15s all;
+  transition: 0.15s all;
+}
+.area-control__delete-anim a:hover {
+  opacity: .9;
+}
+.area-control__delete-anim a:active {
+  border-top: 2px solid #aaa;
+  border-bottom: 2px solid #333;
+}
+
+#area-control__add-anim,
+#area-control__delete-parts {
+  float: left;
+  width: 50%;
+}
+#area-control__add-anim a,
+#area-control__delete-parts a {
+  display: block;
+  height: 34px;
+  padding: 2px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: .1em;
+  line-height: 34px;
+  -webkit-transition: 0.15s all;
+  -moz-transition: 0.15s all;
+  transition: 0.15s all;
+}
+#area-control__add-anim a:hover,
+#area-control__delete-parts a:hover {
+  opacity: .9;
+}
+
+#area-control__add-anim a {
+  border-bottom: 4px solid #930000;
+  background-color: #d70000;
+}
+#area-control__add-anim a:active {
+  border-top: 2px solid #aaa;
+  border-bottom: 2px solid #930000;
+}
+
+#area-control__delete-parts a {
+  background: #565656;
+  border-bottom: 4px solid #444;
+}
+#area-control__delete-parts a:active {
+  border-top: 2px solid #aaa;
+  border-bottom: 2px solid #333;
+}
+
+/* -------------------------------------
+	パーツテンプレート
+ ------------------------------------- */
+[id^=template-parts-] {
+  display: none;
+}
+
+/**
+ *  コントロールパネル バリエーション
+ */
+.area-control__manage-anim {
+  /* -------------------------------------
+  	直線運動
+   ------------------------------------- */
+  /* -------------------------------------
+  	扇運動
+   ------------------------------------- */
+  /* -------------------------------------
+  	円運動
+   ------------------------------------- */
+  /* -------------------------------------
+  	拡大・縮小
+   ------------------------------------- */
+}
+.area-control__manage-anim.linear .area-control__select-anim-icon div {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10.66667px;
+  height: 10.66667px;
+  background: #fff;
+  z-index: 3;
+}
+.area-control__manage-anim.arc .area-control__select-anim-icon:before {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 64px;
+  border: 5px solid #e7ca00;
+  background: #efd102;
+  z-index: 1;
+}
+.area-control__manage-anim.arc .area-control__select-anim-icon:after {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fce229;
+  background: #ffef7b;
+  z-index: 2;
+}
+.area-control__manage-anim.arc .area-control__select-anim-icon div {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10.66667px;
+  height: 10.66667px;
+  background: #fff;
+  z-index: 3;
+}
+.area-control__manage-anim.arc .area-control__operation-anim-main-right > div {
+  height: 50%;
+}
+.area-control__manage-anim.arc .area-control__operation-anim-main-right > div + div {
+  border-top: 1px solid #e3e3e3;
+}
+.area-control__manage-anim.circle .area-control__select-anim-icon:before {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e7ca00;
+  background: #efd102;
+  z-index: 1;
+}
+.area-control__manage-anim.circle .area-control__select-anim-icon:after {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #fce229;
+  background: #ffef7b;
+  z-index: 2;
+}
+.area-control__manage-anim.circle .area-control__select-anim-icon div {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10.66667px;
+  height: 10.66667px;
+  background: #fff;
+  z-index: 3;
+}
+.area-control__manage-anim.scale .area-control__select-anim-icon div {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10.66667px;
+  height: 10.66667px;
+  background: #fff;
+  z-index: 3;
+}
+
+/*# sourceMappingURL=css-anim-maker.css.map */

@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+//----------------------------------------
+//  MIXINS
+//----------------------------------------
+
+// word break
+@mixin word-break() {
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+// box shadow
+@mixin box-shadow( $val... ) {
+	$prefixies: -webkit-, -moz-, null;
+
+	@each $prefix in $prefixies {
+		#{$prefix}box-shadow: $val;
+	}
+}
+
+
+// box sizing
+@mixin box-sizing( $type ) {
+	$prefixies: -webkit-, -moz-, null;
+
+	@each $prefix in $prefixies {
+		#{$prefix}box-sizing: $type;
+	}
+}
+
+
+// background size
+@mixin background-size( $val ) {
+	$prefixies: -webkit-, -moz-, null;
+
+	@each $prefix in $prefixies {
+		#{$prefix}background-size: $val;
+	}
+}
+
+
+// border radius
+@mixin border-radius( $r ) {
+	$prefixies: -webkit-, -moz-, null;
+
+	@each $prefix in $prefixies {
+		#{$prefix}border-radius: $r;
+	}
+}
+
+
+// transition
+@mixin transition( $prop... ) {
+	$prefixies: -webkit-, -moz-, null;
+
+	@each $prefix in $prefixies {
+		#{$prefix}transition: $prop;
+	}
+}
+
+
+// transform
+@mixin transform( $function... ) {
+	$prefixies: -webkit-, -moz-, null;
+// @debug($function);
+	@each $prefix in $prefixies {
+		#{$prefix}transform: $function;
+	}
+}
+
+
+// transform origin
+@mixin transform-origin( $val... ) {
+	$prefixies: -webkit-, -moz-, null;
+
+	@each $prefix in $prefixies {
+		#{$prefix}transform-origin: $val;
+	}
+}
+
+
+// animation
+@mixin animation( $animation-name ) {
+	$prefixies: -webkit-, -moz-, null;
+	@each $prefix in $prefixies {
+		#{$prefix}animation: $animation-name;
+		// #{$prefix}animation-fill-mode: both;
+	}
+}
+
+// animation play state [ running | paused ]
+@mixin animation-play-state( $val: running ) {
+	$prefixies: -webkit-, -moz-, null;
+
+	@each $prefix in $prefixies {
+		#{$prefix}animation-play-state: $val;
+	}
+}
+
+// keyframes
+@mixin keyframes( $animation-name ) {
+	@-webkit-keyframes #{$animation-name} {
+		@content;
+	}
+	@-moz-keyframes #{$animation-name} {
+		@content;
+	}
+	@keyframes #{$animation-name} {
+		@content;
+	}
+}
+
+
+// CLEAR FIX
+@mixin cf() {
+	/* CLEAR FIX */
+	zoom: 1;
+	&:after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+}
+
+
+//----------------------------------------
+//	EXTENDS
+//----------------------------------------
+
+// CLEAR FIX
+%cf {
+	/* CLEAR FIX */
+	zoom: 1;
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}

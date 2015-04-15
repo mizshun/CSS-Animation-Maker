@@ -1,0 +1,637 @@
+// @charset "utf-8";
+
+//--------------------------------------
+// SETTING
+//--------------------------------------
+$width            : 960px;
+$height           : 480px;
+$bgc              : #f9f9f9;
+$bdc              : #eee;
+$activeColor      : #fde6e6;
+$activeColorStrong: #d70000;
+$activeColorDark  : #930000;
+$box-shadow       : 1px 1px 3px #aaa;
+
+
+//--------------------------------------
+// COMPONENT
+//--------------------------------------
+
+// ボックス基本スタイル
+@mixin componentBox( $arg_bgc: #fff ) {
+	background-color: $arg_bgc;
+	@include box-shadow( $box-shadow );
+}
+
+
+//--------------------------------------
+// UI STYLE
+//--------------------------------------
+
+/* -------------------------------------
+	アップローダーエリア
+ ------------------------------------- */
+#area-uploader {
+	@include componentBox();
+	@include box-sizing( border-box );
+	@include cf();
+	margin-bottom: 10px;
+
+	form {
+		float: left;
+		width: 90%;
+	}
+
+	#area-uploader__main,
+	#area-uploader__parts {
+		@include cf();
+	}
+
+	input {
+		@include box-sizing( border-box );
+		float: left;
+		width: 25%;
+		padding: 5px;
+		border: 1px solid $bdc;
+		background: $bgc;
+	}
+
+	#upload-file-main {
+		display: block;
+		width: 100%;
+	}
+}
+
+/* ストレージエリア */
+#area-uploader__btn {
+	float: right;
+	width: 10%;
+	// height: $height;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+	// line-height: $height;
+
+	li {
+		@include box-sizing( border-box );
+		// width: 100%;
+		height: 50%;
+		border-bottom: 4px solid $activeColorDark;
+		background-color: $activeColorStrong;
+		color: #fff;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+		cursor: pointer;
+		@include transition( .15s all );
+
+		&:hover {
+			opacity: .8;
+		}
+
+		&:active {
+			border-top: 2px solid #aaa;
+			border-bottom: 2px solid $activeColorDark;
+		}
+	}
+}
+
+/* 操作エリア */
+#area-control {
+	@include componentBox();
+	position: relative;
+}
+
+#area-control__head {
+	@include componentBox();
+	@include cf();
+}
+
+/* -------------------------------------
+	パーツ選択エリア
+ ------------------------------------- */
+#area-control__select,
+#area-control__run {
+	$height: 60px;
+	$bdw: 3px;
+
+	@include box-sizing( border-box );
+	@include cf();
+	height: $height;
+	border-bottom: $bdw solid $bdc;
+	background: $bgc;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		list-style-type: none;
+		line-height: $height - $bdw;
+	}
+
+	li {
+		@include box-sizing( border-box );
+		float: left;
+		width: percentage( ( $width / 9 ) / $width );
+		height: 100%;
+		border-bottom: 3px solid transparent;
+		background-color: #fff;
+		font-size: 12px;
+		text-align: center;
+		cursor: pointer;
+
+		& + li {
+			border-left: 1px solid $bdc;
+		}
+
+		&.active {
+			position: relative;
+			border-bottom: 3px solid $activeColorStrong;
+			background: $activeColor;
+
+			&:after {
+				$arrow: 10px;
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: -( $arrow + $bdw );
+				left: 50%;
+				margin-left: ( -$arrow / 2 );
+				border-top: $arrow solid $activeColorStrong;
+				border-left:(  $arrow / 2 ) solid transparent;
+				border-right:(  $arrow / 2 ) solid transparent;
+			}
+		}
+
+		&:hover {
+			opacity: .8;
+		}
+	}
+}
+
+#area-control__select {
+	float: left;
+	width: 90%;
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+	}
+}
+
+#area-control__run {
+	float: right;
+	width: 10%;
+	text-align: center;
+	font-weight: bold;
+
+	li {
+		width: 100%;
+		border-bottom: 4px solid $activeColorDark;
+		background-color: $activeColorStrong;
+		color: #fff;
+		text-transform: uppercase;
+		letter-spacing: .15em;
+		@include transition( .15s all );
+
+		&:active {
+			border-top: 2px solid #aaa;
+			border-bottom: 2px solid $activeColorDark;
+		}
+	}
+}
+
+/* -------------------------------------
+	キャラクター操作エリア
+ ------------------------------------- */
+#area-control__work {
+	position: relative;
+	height: $height;
+}
+
+#area-control__enemy {
+	position: relative;
+	height: 100%;
+}
+
+#area-enemy {
+	width: 100%;
+	height: 100%;
+}
+
+#comp-enemy__blank {
+	$fz: 24px;
+
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	margin-top: -$fz;
+	font-size: $fz;
+	text-align: center;
+}
+
+.parts-enemy {
+	@include box-sizing( border-box );
+	position: absolute !important;
+	border: 1px dashed transparent;
+
+
+
+	// TODO: テスト用 要削除
+	// &#parts-enemy-sub-1 {
+	// 	$animation-name           : parts-enemy-sub-1-0;
+	// 	$animation-duration       : 1s;
+	// 	$animation-function       : ease-in-out;
+	// 	$animation-delay          : 0s;
+	// 	$animation-iteration-count: infinite;
+	// 	$animation-direction      : alternate;
+
+	// 	img {
+	// 		@include keyframes( $animation-name ) {
+	// 			0%   {
+	// 				@include transform( translate( 0, 0 ) );
+	// 			}
+	// 			100% {
+	// 				@include transform( translate( 0, 5px ) );
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	&#parts-enemy-main {
+		$animation-duration       : 5s;
+		$animation-function       : linear;
+		$animation-delay          : 0s;
+		$animation-iteration-count: infinite;
+		$animation-direction      : normal;
+
+	// 	$transform-origin: 35px 40px;
+	// 	@include transform-origin( $transform-origin );
+
+	// 	$animation-name           : parts-enemy-main-0;
+	// 	@include animation( $animation-name $animation-duration $animation-function $animation-delay $animation-iteration-count $animation-direction );
+	// 	@include keyframes( $animation-name ) {
+	// 		0%   {
+	// 			@include transform( rotate( 0 ) );
+	// 		}
+	// 		100% {
+	// 			@include transform( rotate( 360deg ) );
+	// 		}
+	// 	}
+
+		// img {
+		// 	$animation-name: parts-enemy-main-transform;
+		// 	@include animation( $animation-name $animation-duration $animation-function $animation-delay $animation-iteration-count $animation-direction );
+		// 	@include keyframes( $animation-name ) {
+		// 		0%   {
+		// 		@include transform( rotate( 0 ) );
+		// 	}
+		// 	100% {
+		// 		@include transform( rotate( -360deg ) );
+		// 		}
+		// 	}
+		// }
+	}
+
+	// サブパーツのみ移動可
+	&[id*=sub] {
+		cursor: move;
+	}
+
+	&.active {
+		border-color: $activeColorStrong;
+		// background: rgba(255, 169, 137, 0.3);
+		background-color: rgba( $activeColor, .5);
+	}
+
+	img {
+		position: relative;
+		max-width : 100%;
+		max-height: 100%;
+		vertical-align: bottom;
+	}
+}
+
+/* -------------------------------------
+	操作パネル
+ ------------------------------------- */
+#area-control__panel {
+	@include componentBox( $bgc );
+	@include cf();
+	@include box-sizing( border-box );
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 240px;
+	height: $height;
+	font-size: 11px;
+	cursor: move;
+	z-index: 9999;
+
+	form {
+		overflow-y: auto;
+		  height: 390px;
+		background-color: #fff;
+	}
+
+	label {
+		font-weight: bold;
+	}
+}
+
+/* パーツ情報エリア */
+#area-control__panel-parts {
+	@include cf();
+	border-bottom: 1px solid #e3e3e3;
+	background-color: #fff;
+}
+
+#area-control__panel-parts-name {
+	@include box-sizing( border-box );
+	overflow: hidden;
+	float: left;
+	width: 80%;
+	height: 48px;
+	font-size: 14px;
+	line-height: 48px;
+	text-overflow: ellipsis;
+}
+
+#area-control__panel-parts-zindex {
+	@include box-sizing( border-box );
+	float: right;
+	width: 20%;
+	height: 48px;
+	background-color: $activeColorStrong;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	line-height: 48px;
+}
+
+/* パーツアニメーションエリア (ラッパー) */
+#area-control__panel-anims {
+
+}
+
+/* 個別パーツアニメーションエリア */
+// .area-control__manage-anim {
+// }
+
+.area-control__select-anim {
+	$dimension: 32px;
+
+	@include cf();
+	height: $dimension;
+	// border-left: 8px solid #aaa;
+
+	.area-control__select-anim-icon {
+		// この中はコンテキストにより変化する
+		// control-anim.scss
+		position: relative;
+		overflow: hidden;
+		float: left;
+		width: $dimension;
+		height: 100%;
+		border-right: 1px solid #e3e3e3;
+	}
+
+	.area-control__select-anim-pattern {
+		float: right;
+		width: 240px - ( $dimension + 1 );
+		height: 100%;
+		border: none;
+		background-color: #fff;
+		font-weight: bold;
+	}
+}
+
+.area-control__operation-anim {
+	border-left: 8px solid #e3e3e3;
+	border-bottom: 8px solid #e3e3e3;
+
+	.area-control__operation-anim-main {
+		$dimension: 72px;
+
+		display: table;
+
+		width: 100%;
+		height: 100px;
+		border-top: 1px solid #e3e3e3;
+		background: $bgc;
+
+		// メインエリア (左)
+		.area-control__operation-anim-main-left {
+			display: table-cell;
+			width: $dimension;
+			height: 100%;
+			text-align: center;
+			vertical-align: top;
+			border-right: 1px solid #e3e3e3;
+		}
+
+		// コンテキストエリア
+		.area-control__operation-anim-context {
+			@include cf();
+
+			height: $dimension;
+			background-color: #fff;
+
+			// 9ブロックボタン
+			&.origin {
+				$dimension: 24px;
+
+				background-color: #fff;
+
+				label {
+					@include box-sizing( border-box );
+					float: left;
+					width: $dimension;
+					height: $dimension;
+					border: 1px solid #ccc;
+					cursor: pointer;
+
+					&:hover {
+						background-color: #e3e3e3;
+					}
+
+					&.active {
+						background-color: #fde6e6;
+					}
+				}
+
+				input {
+					display: none;
+				}
+			}
+		}
+
+		// 詳細ボタン
+		.area-control__operation-btn-detail {
+			$height: 25px;
+			$bdw   : 4px;
+
+			height: $height;
+			border-bottom: 4px solid $activeColorDark;
+			background-color: $activeColorStrong;
+			color: #fff;
+			text-align: center;
+			line-height: $height;
+			cursor: pointer;
+			@include transition( .15s all );
+
+			&:hover {
+				opacity: .9;
+			}
+
+			&:active {
+				border-top: 2px solid #aaa;
+				border-bottom: 2px solid $activeColorDark;
+			}
+		}
+
+		// メインエリア (右)
+		& .area-control__operation-anim-main-right {
+			display: table-cell;
+			height: 100%;
+
+			> div {
+				@include box-sizing( border-box );
+				padding: 5px;
+			}
+
+			span {
+				display: block;
+			}
+
+			input {
+				@include box-sizing( border-box );
+				width: 100%;
+			}
+
+			// この中はコンテキストにより変化する
+			// control-anim.scss
+		}
+	}
+
+	.area-control__operation-anim-detail {
+		$dimension: 72px;
+
+		display: none;
+
+		> div {
+			display: table;
+			width: 100%;
+			border-left: 1px solid #e3e3e3;
+
+			&:first-child {
+				border-top: 1px solid #e3e3e3;
+			}
+
+			> span {
+				display: table-cell;
+				width: 50%;
+				height: 32px;
+				padding: 5px;
+				border-right: 1px solid #e3e3e3;
+				border-bottom: 1px solid #e3e3e3;
+				text-align: center;
+				vertical-align: middle;
+
+				&:first-child {
+					// width: $dimension;
+					background: #f9f9f9;
+					font-weight: bold;
+				}
+
+				> * {
+					@include box-sizing( border-box );
+					width: 100%;
+					height: 100%;
+					padding: 0;
+					border: none;
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+.area-control__delete-anim {
+	a {
+		display: block;
+		padding: 5px;
+		background: #565656;
+		border-bottom: 4px solid #444;
+		color: #fff;
+		text-align: center;
+		@include transition( .15s all );
+
+		&:hover {
+			opacity: .9;
+		}
+
+		&:active {
+			border-top: 2px solid #aaa;
+			border-bottom: 2px solid #333;
+		}
+	}
+}
+
+#area-control__add-anim,
+#area-control__delete-parts {
+	$height: 34px;
+	$bdb: 4px;
+
+	float: left;
+	width: 50%;
+
+	a {
+		display: block;
+		height: $height;
+		padding: $bdb / 2;
+		color: #fff;
+		text-align: center;
+		letter-spacing: .1em;
+		line-height: $height;
+		@include transition( .15s all );
+
+		&:hover {
+			opacity: .9;
+		}
+	}
+}
+#area-control__add-anim {
+	$bdb: 4px;
+
+	a {
+		border-bottom: $bdb solid $activeColorDark;
+		background-color: $activeColorStrong;
+
+		&:active {
+			border-top: $bdb / 2 solid #aaa;
+			border-bottom: $bdb / 2 solid $activeColorDark;
+		}
+	}
+}
+#area-control__delete-parts {
+	$bdb: 4px;
+
+	a {
+		background: #565656;
+		border-bottom: $bdb solid #444;
+
+		&:active {
+			border-top: $bdb / 2 solid #aaa;
+			border-bottom: $bdb / 2 solid #333;
+		}
+	}
+}
+
+/* -------------------------------------
+	パーツテンプレート
+ ------------------------------------- */
+[id^=template-parts-] {
+	display: none;
+}

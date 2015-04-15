@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+// -------------------------------
+// PATH
+// -------------------------------
+// Image
+$IMG_PATH: "../img/";
+
+
+// -------------------------------
+// FONT
+// -------------------------------
+// Font family
+// $BASE_FONT_FAMILY: Helvetica, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Meiryo, "メイリオ", sans-serif;
+$BASE_FONT_FAMILY: serif;
+
+// Font size
+$BASE_FONT_SIZE      : 14px;
+
+// Font color
+$BASE_FONT_COLOR     : #333;
+
+// Line height
+$BASE_LINE_HEIGHT    : 1.8;
+
+// Highlight color
+$HIGHLIGHT_FONT_COLOR: #fc0;
+
+// Letter spacing
+$BASE_LETTER_SPACING : .05em;
+
+// Link color
+$BASE_LINK  : $BASE_FONT_COLOR; // link
+$BASE_LINK_V: $BASE_FONT_COLOR; // visited
+$BASE_LINK_H: $BASE_FONT_COLOR; // hover
+$BASE_LINK_A: $BASE_FONT_COLOR; // active
+
+
+// -------------------------------
+// SITE COLOR
+// -------------------------------
+// BASE
+$BASE_BG_COLOR: #fff;
+
+// MAIN
+$SUB_BG_COLOR : #eee;
+
+// KEY
+$KEY_BG_COLOR : #333;
+
+
+// -------------------------------
+// SITE LAYOUT
+// -------------------------------
+// Content area width
+$BASE_WIDTH: 960px;
+
+// Base gutter
+$BASE_SPACE: 8px;
+
+// Base gutter S
+$BASE_SPACE_S: $BASE_SPACE / 2;
+
+// Base gutter L
+$BASE_SPACE_L: $BASE_SPACE * 2;
+
+
+// -------------------------------
+// GLOBAL HEADER
+// -------------------------------
+// HEADER
+$HEADER_GLOBAL_HEIGHT: 40px;
+
+// HEADER
+$HEADER_GLOBAL_COLOR: rgba( 255, 255, 255, 0.54 );
+
+
+// -------------------------------
+// GLOBAL FOOTER
+// -------------------------------

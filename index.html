@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>CSSアニメーション設定ツール | JavaScript</title>
+<link rel="stylesheet" type="text/css" href="../common/css/normalize.css" media="all">
+<link rel="stylesheet" type="text/css" href="../common/css/common.css" media="all">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery||document.write("<script type='text/javascript' src='../common/js/lib/jquery-1.9.1.min.js'>\x3C/script>")</script>
+<!-- ↓ここから↓ -->
+<link rel="stylesheet" href="css/css-anim-maker.css">
+<!-- 必須ライブラリ -->
+<script src="js/lib/jquery-ui-drag-position.js"></script>
+<script src="js/lib/underscore.js"></script>
+<!-- ↓クラスファイル ここから↓ -->
+<script src="js/main.js"></script>
+<script src="js/class/manageData.js"></script>
+<script src="js/class/manageAnim.js"></script>
+<script src="js/class/character.js"></script>
+<script src="js/class/characterCollection.js"></script>
+<script src="js/class/fileuploader.js"></script>
+<script src="js/class/fileselect.js"></script>
+<script src="js/class/controlenemy.js"></script>
+<script src="js/class/controlpanel.js"></script>
+<!-- ↑クラスファイル ここまで↑ -->
+<script src="js/data/anim/anim-pattern.js"></script>
+<script>
+var format = 'font-weight:bold;color:#2476c9;font-size:13px;';
+/* 実行 */
+jQuery( function ( $ ) {
+	animMaker.main = new animMaker.Main();
+	animMaker.main.init();
+});
+</script>
+<!-- ↑ここまで↑ -->
+</head>
+
+<body>
+<div class="global-header-wrapper">
+	<header class="global-header">
+		<h1 class="headline">CSSアニメーション設定ツール</h1>
+	<!-- global-header --></header>
+	<div class="bg-torn"></div>
+<!-- global-header-wrapper --></div>
+
+<div class="main-content-wrapper">
+	<div class="main-content">
+
+			<section class="works-desc">
+				<h2>実装要件</h2>
+				<ul>
+					<li>すべての操作をUIで設定することができる。</li>
+					<li>画像をアップロードすることができる。</li>
+					<li>各パーツにアニメーションを設定することがができる。</li>
+				</ul>
+			</section>
+
+			<section class="works-main">
+
+
+
+			<!-- ↓ここから↓ -->
+			<div class="area-anim-maker">
+
+				<div id="area-uploader">
+					<form action="">
+						<h2>メイン画像(本体)</h2>
+						<div id="area-uploader__main">
+							<input type="file" accept="image/*" name="files[]" id="upload-file-main">
+						</div>
+
+						<h2>サブ画像(パーツ)</h2>
+						<div id="area-uploader__parts">
+							<input type="file" accept="image/*" name="files[]" id="upload-file-sub-1">
+							<input type="file" accept="image/*" name="files[]" id="upload-file-sub-2">
+							<input type="file" accept="image/*" name="files[]" id="upload-file-sub-3">
+							<input type="file" accept="image/*" name="files[]" id="upload-file-sub-4">
+							<input type="file" accept="image/*" name="files[]" id="upload-file-sub-5">
+							<input type="file" accept="image/*" name="files[]" id="upload-file-sub-6">
+							<input type="file" accept="image/*" name="files[]" id="upload-file-sub-7">
+							<input type="file" accept="image/*" name="files[]" id="upload-file-sub-8">
+						</div>
+					</form>
+
+					<ul id="area-uploader__btn">
+						<li id="area-control__load">読み込む</li>
+						<li id="area-control__save">保存</li>
+						<li id="area-control__all-delete">全削除</li>
+					</ul><!-- area-uploader__btn -->
+				</div><!-- area-uploader -->
+
+
+				<div id="area-control">
+					<div id="area-control__head">
+						<div id="area-control__select"></div>
+						<div id="area-control__run">
+							<ul>
+								<li>全再生</li>
+							</ul>
+						</div><!-- area-control__run -->
+					</div><!-- area-control__head -->
+
+					<div id="area-control__work">
+						<div id="area-control__enemy">
+							<div id="area-enemy">
+								<div id="comp-enemy"></div>
+							</div>
+						</div><!-- area-enemy -->
+
+						<div id="area-control__panel">
+							<div id="area-control__panel-parts">
+								<h2 id="area-control__panel-parts-name"></h2>
+								<div id="area-control__panel-parts-zindex"></div>
+							</div><!-- area-control__panel-parts -->
+
+							<div id="area-control__panel-anims">
+								<form action="" id="area-control__manage-anims"></form><!-- area-control__manage-anims -->
+							</div><!-- area-control__panel-anims -->
+
+							<div id="area-control__add-anim"><a href="#">アニメーション追加</a></div>
+							<div id="area-control__delete-parts"><a href="#">パーツ削除</a></div>
+						</div>
+					</div>
+				</div><!-- area-control -->
+
+			</div><!-- area-anim-maker -->
+			<!-- ↑ここまで↑ -->
+
+
+
+			</section>
+
+	<!-- main-content --></div>
+<!-- main-content-wrapper --></div>
+
+<div class="global-footer-wrapper">
+	<div class="global-footer">
+		<address class="copyright">Cheap Tips Factory</address>
+	<!-- global-footer --></div>
+<!-- global-footer-wrapper --></div>
+</body>
+</html/>
