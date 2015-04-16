@@ -27,6 +27,7 @@
 #area-uploader #area-uploader__parts {
   /* CLEAR FIX */
   zoom: 1;
+  font-size: 11px;
 }
 #area-uploader #area-uploader__main:after,
 #area-uploader #area-uploader__parts:after {
@@ -43,6 +44,9 @@
   padding: 5px;
   border: 1px solid #eee;
   background: #f9f9f9;
+}
+#area-uploader input.selected {
+  background-color: #eee;
 }
 #area-uploader #upload-file-main {
   display: block;

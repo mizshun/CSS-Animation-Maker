@@ -45,6 +45,7 @@ $box-shadow       : 1px 1px 3px #aaa;
 	#area-uploader__main,
 	#area-uploader__parts {
 		@include cf();
+		font-size: 11px;
 	}
 
 	input {
@@ -54,6 +55,10 @@ $box-shadow       : 1px 1px 3px #aaa;
 		padding: 5px;
 		border: 1px solid $bdc;
 		background: $bgc;
+
+		&.selected {
+			background-color: #eee;
+		}
 	}
 
 	#upload-file-main {

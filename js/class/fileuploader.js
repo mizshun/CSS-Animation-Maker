@@ -152,10 +152,13 @@ animMaker.FileUpLoader = ( function () {
 			// 使用不可 (ファイル読み込み時)
 			else if ( state && fileName ) {
 				// 選択ファイル名を表示する
+				// TODO: 設定方法調査中
 			}
 
 			// 活性状態を変更する
-			$target.prop( 'disabled', state );
+			$target
+				.prop( 'disabled', state )
+				.toggleClass( 'selected' );
 		}
 	}
 
