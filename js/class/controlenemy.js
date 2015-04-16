@@ -17,9 +17,11 @@ animMaker.ControlEnemy = ( function () {
 	 定数
 	 ------------------------------*/
 	var // パーツが無いときの表示
-	    BLANK_DISP         = 'パーツを読み込んでください',
+	    BLANK_DISP          = 'パーツを読み込んでください',
 	    // パーツが無いときの表示要素のID
-	    BLANK_DISP_ID      = 'comp-enemy__blank';
+	    BLANK_DISP_ID       = 'comp-enemy__blank',
+	    // 操作エリアの背景画像のID
+	    CONTROL_ENEMY_BG_ID = 'area-control__enemy-bg';
 
 	/* ------------------------------
 	 HTMLテンプレート
@@ -69,9 +71,15 @@ animMaker.ControlEnemy = ( function () {
 				// キャラクターパーツのHTMLが準備完了したとき
 				.on( animMaker.ns + 'partsComplete', this.ctlCharacterComplete /* arg: e, $compEnemy */ )
 				// クラスを読み込んだ直後
-				.on( animMaker.ns + 'classLoaded',   this.renderControlEnemy    /* arg: e */ )
-				// // 描画を更新するとき
-				.on( animMaker.ns + 'partsRender',   this.renderControlEnemy    /* arg: e, $compEnemy */ );
+				.on( animMaker.ns + 'classLoaded',   this.renderControlEnemy   /* arg: e */ )
+				// 描画を更新するとき
+				.on( animMaker.ns + 'partsRender',   this.renderControlEnemy   /* arg: e, $compEnemy */ )
+				//
+				.on( animMaker.ns + 'BgFileLoaded',  this.ctlSettingBg         /* arg: e, ProgressEv */ );
+
+			this.dom.$areaControlEnemy
+				// 操作エリアに設定した画像が押されたとき
+				.on( 'mousedown', '#' + CONTROL_ENEMY_BG_ID, this.ctlAreaMouseDown );
 		},
 
 		/* ------------------------------
@@ -95,6 +103,7 @@ animMaker.ControlEnemy = ( function () {
 		 */
 		ctlAreaMouseDown: function ( e ) {
 			e.stopPropagation();
+
 			var mn           = animMaker.main,
 			    fileSelect   = mn.fileSelect,
 			    controlPanel = mn.controlPanel,
@@ -117,6 +126,31 @@ animMaker.ControlEnemy = ( function () {
 			var characterCollection = animMaker.main.characterCollection;
 			currentData = currentId ? characterCollection.getCurrentCollectionData( currentId ) : null;
 			controlPanel.dom.$areaControlPanel.trigger( animMaker.ns + 'AreaMouseDown', [currentData] );
+		},
+
+		ctlSettingBg: function ( e, progressEv ) {
+			e.stopPropagation();
+
+			self.prototype.loadBg( progressEv );
+
+		},
+
+		loadBg: function ( progressEv ) {
+			var $img = $( '<img>' ),
+			    $areaControlEnemy = animMaker.main.controlEnemy.dom.$areaControlEnemy;
+
+			$img
+				.attr( {
+					'src': progressEv.target.result,
+					'id' : CONTROL_ENEMY_BG_ID
+				} );
+			$img.on( 'load', function ( e ) {
+				self.prototype.renderBg( $( e.target ), $areaControlEnemy );
+			} );
+		},
+
+		renderBg: function ( $img, $areaControlEnemy ) {
+			$img.appendTo( $areaControlEnemy );
 		},
 
 		/* ------------------------------
