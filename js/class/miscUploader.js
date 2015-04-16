@@ -10,7 +10,7 @@ var animMaker = animMaker || {};
  * @constructor
  * @classdesc
  */
-animMaker.FileUpLoader = ( function () {
+animMaker.MiscUpLoader = ( function () {
 	'use strict';
 
 	/* コンストラクタ */
@@ -22,15 +22,11 @@ animMaker.FileUpLoader = ( function () {
 		/**
 		 * @private {object} アップローダーエリア
 		 */
-		this.dom.$areaUploader      = $( '#area-uploader' );
+		this.dom.$areaMiscUploader      = $( '#area-misc' );
 		/**
 		 * @private {object} アップローダーエリア (本体)
 		 */
-		this.dom.$areaUploaderMain  = $( '#area-uploader__main' );
-		/**
-		 * @private {object} アップローダーエリア (パーツ)
-		 */
-		this.dom.$areaUploaderParts = $( '#area-uploader__parts' );
+		this.dom.$areaMiscUploaderBg  = $( '#area-misc__bg' );
 
 		// 初期化する
 		this.init();
@@ -41,12 +37,12 @@ animMaker.FileUpLoader = ( function () {
 		 * 初期化する
 		 */
 		init: function () {
-			console.info( 'Class: FileUpLoader.init()' );
+			console.info( 'Class: MiscUpLoader.init()' );
 
 			/* ------------------------------
 			 イベント
 			 ------------------------------*/
-			this.dom.$areaUploader
+			this.dom.$areaMiscUploader
 				// ファイルが選択されたとき
 				.on( 'change',                     'input', $.proxy( this.ctlOpenFile, this ) )
 
@@ -118,20 +114,13 @@ animMaker.FileUpLoader = ( function () {
 				return;
 			}
 
-			// キャラクターパーツ インスタンス作成
-			data = {
-				id  : uploadId,
-				file: f,
-				newParts: true
-			}
-			var character = new animMaker.Character( data );
 			// ファイルリーダー作成
 			var reader    = new FileReader();
 
 			// ファイル読み込み完了時
-			reader.onload = function ( e ) {
-				// キャラクターオブジェクトへ通知する
-				character.dom.$imgParts.trigger( animMaker.ns + 'FileLoaded', [e, character] );
+			reader.onload = function ( progressEv ) {
+				// 操作エリアへ通知する
+				animMaker.main.controlEnemy.dom.$areaEnemy.trigger( animMaker.ns + 'BgFileLoaded', [progressEv] );
 			};
 
 			// ファイルデータ読み込み

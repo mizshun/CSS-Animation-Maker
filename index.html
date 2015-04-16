@@ -19,6 +19,7 @@
 <script src="js/class/character.js"></script>
 <script src="js/class/characterCollection.js"></script>
 <script src="js/class/fileuploader.js"></script>
+<script src="js/class/miscUploader.js"></script>
 <script src="js/class/fileselect.js"></script>
 <script src="js/class/controlenemy.js"></script>
 <script src="js/class/controlpanel.js"></script>
@@ -89,6 +90,17 @@ jQuery( function ( $ ) {
 					</ul><!-- area-uploader__btn -->
 				</div><!-- area-uploader -->
 
+				<div id="area-misc">
+					<form action="">
+						<div id="area-misc__bg">
+							<input type="file" accept="image/*" name="files[]" id="upload-file-bg">
+						</div>
+					</form>
+
+					<ul id="area-misc__btn">
+						<li id="area-misc__style">CSS取得</li>
+					</ul><!-- area-misc__btn -->
+				</div><!-- area-misc -->
 
 				<div id="area-control">
 					<div id="area-control__head">

@@ -31,6 +31,8 @@ animMaker.Main = ( function ( w, d, $ ) {
 		'CharacterCollection',
 		// アップローダー作成
 		'FileUpLoader',
+		// 付属的なアップローダー作成
+		'MiscUpLoader',
 		// パーツ選択エリア作成
 		'FileSelect',
 		// コントロールキャラクターエリア作成
