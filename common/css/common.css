@@ -1,0 +1,142 @@
+@charset "utf-8";
+
+/*----------------------------------------
+	基本スタイル
+----------------------------------------*/
+body {
+	background-color: #282d34;
+	font-size: 14px;
+	font-family: serif;
+	color: #333;
+	/*line-height: 1.5;*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+a {
+	color: #7a7e83;
+	text-decoration: none;
+}
+a:hover {
+	color: #7a7e83;
+}
+a:visited {
+	color: #7a7e83;
+}
+a:active {
+	color: #7a7e83;
+}
+
+/*----------------------------------------
+	ヘッダー
+----------------------------------------*/
+.global-header-wrapper {
+	position: relative;
+}
+.global-header {
+	position: relative;
+	width: 960px;
+	height: 120px;
+	margin: 0 auto;
+}
+
+/* 見出し */
+.global-header .headline {
+	position: absolute;
+	top: 36px;
+	left: 0;
+	font-size: 24px;
+	color: #d9e2ef;
+}
+
+/*----------------------------------------
+	メインコンテンツ
+----------------------------------------*/
+/* 共通 */
+.main-content-wrapper {
+	padding: 40px 0;
+	background: #fbfaf7;
+}
+.main-content {
+	width: 960px;
+	margin: 0 auto;
+	background: transparent;
+}
+.main-content h2 {
+	/*margin-bottom: 10px;*/
+}
+.main-content ul {
+	line-height: 1.8;
+}
+
+/* 概要 */
+.works-desc {
+	margin-bottom: 40px;
+	padding: 10px;
+	border: 8px solid #eee;
+	background-color: #fff;
+	-webkit-box-shadow: 1px 1px 3px #aaa;
+	   -moz-box-shadow: 1px 1px 3px #aaa;
+	        box-shadow: 1px 1px 3px #aaa;
+}
+
+/* 見出し */
+.works-main h2 {
+	padding-left: 8px;
+	border-left: 1px solid #d70000;
+	line-height: 2;
+}
+.works-main h3 {
+	padding-left: 8px;
+	border-left: 1px solid #ffcb00;
+}
+.works-main h4 {
+	padding-left: 8px;
+	border-left: 1px solid #a1d700;
+}
+
+/* 表 */
+table {
+	width: 100%;
+	border-left: 1px solid #e3e3e3;
+}
+tr:first-child {
+	border-top: 1px solid #e3e3e3;
+}
+th,
+td {
+	padding: 8px;
+	border-right: 1px solid #e3e3e3;
+	border-bottom: 1px solid #e3e3e3;
+	background-color: #fff;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/*----------------------------------------
+	フッター
+----------------------------------------*/
+.global-footer-wrapper {
+	background: transparent url(../img/torn-bottom.png) 0 0 repeat-x;
+	color: #d9e2ef;
+	line-height: 120px;
+}
+.global-footer {
+	width: 960px;
+	margin: 0 auto;
+}
+.bg-torn {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 13px;
+	background: transparent url(../img/torn.png) 0 0 repeat-x;
+	z-index: 1;
+}
