@@ -1,4 +1,4 @@
-### CSS Animation Makerについて
+### CSS Animation Makerについて (未完成)
 
 「CSS Animation Maker」は、CSSのみを使用してHTML要素にアニメーションを設定するツールです。
 あるキャラクターを構成するためのパーツ画像の読み込みと、パーツ画像に対してのアニメーション設定を想定してJavaScriptで作成しました。
