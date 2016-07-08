@@ -31,7 +31,7 @@ animMaker.ClassName = ( function () {
 
 
 		this.init();
-	}
+	};
 
 	/* パブリックメソッド */
 	self.prototype = {
@@ -66,7 +66,7 @@ animMaker.ClassName = ( function () {
 		func: function () {
 			// execute
 		},
-	}
+	};
 
 	return self;
 }() );
